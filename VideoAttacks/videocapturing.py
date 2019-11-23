@@ -2,6 +2,7 @@ import datetime
 from threading import Thread
 import cv2
 from cfpsList import *
+import os
 
 # This is a class to handle the recording using multiple threads.
 # Because the recorded framerate and captured framerate do not
@@ -48,7 +49,7 @@ class recordVideo:
       recording=False
       init = True
       numRecs=0
-      while numRecs!=3:
+      while numRecs!=1:
          if recording and init:
             rec = cv2.VideoWriter(self.output+str(numRecs)+".avi",self.fourcc,self.fps,(self.height,self.width))
             init = False
@@ -71,7 +72,7 @@ class recordVideo:
       cam.stop()
       cv2.destroyAllWindows()
 
-# These consist of 7.5 minutes of recordings saved in ./videos/
+# These consist of 1.5 minutes of recordings saved in ./videos/
 
 # TEST RECORD AT 1920x1080x30fps
 
@@ -100,19 +101,6 @@ record.record()
 record = recordVideo(h,w,f,fourcc,"./videos/far-"+str(h)+"-"+str(w)+"-"+str(f)+"-","Put face 30in from camera.")
 record.record()
 
-# TEST RECORD AT 1280x720x30fps
-
-h=1280
-w=720
-f=30
-
-record = recordVideo(h,w,f,fourcc,"./videos/close-"+str(h)+"-"+str(w)+"-"+str(f)+"-","Put face 10in from camera.")
-record.record()
-record = recordVideo(h,w,f,fourcc,"./videos/med-"+str(h)+"-"+str(w)+"-"+str(f)+"-","Put face 20in from camera.")
-record.record()
-record = recordVideo(h,w,f,fourcc,"./videos/far-"+str(h)+"-"+str(w)+"-"+str(f)+"-","Put face 30in from camera.")
-record.record()
-
 # TEST RECORD AT 640x480x60fps
 
 h=640
@@ -126,15 +114,3 @@ record.record()
 record = recordVideo(h,w,f,fourcc,"./videos/far-"+str(h)+"-"+str(w)+"-"+str(f)+"-","Put face 30in from camera.")
 record.record()
 
-# TEST RECORD AT 640x480x30fps
-
-h=640
-w=480
-f=30
-
-record = recordVideo(h,w,f,fourcc,"./videos/close-"+str(h)+"-"+str(w)+"-"+str(f)+"-","Put face 10in from camera.")
-record.record()
-record = recordVideo(h,w,f,fourcc,"./videos/med-"+str(h)+"-"+str(w)+"-"+str(f)+"-","Put face 20in from camera.")
-record.record()
-record = recordVideo(h,w,f,fourcc,"./videos/far-"+str(h)+"-"+str(w)+"-"+str(f)+"-","Put face 30in from camera.")
-record.record()
