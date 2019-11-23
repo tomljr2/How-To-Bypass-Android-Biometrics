@@ -1,1 +1,1 @@
-result={}
+result={'far': 0, 'med': 0, 'close': 0}
