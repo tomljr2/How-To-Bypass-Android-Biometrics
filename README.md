@@ -59,6 +59,10 @@ you have. I recommend keeping the resolution at 1920x1080 even if you have a hig
 resolution monitor. I do not recommend using a monitor with a lower resolution than
 1920x1080.
 
+For the values of defaultRes and defaultRate, simply use the resolution and refresh
+rate that you normally use. This just makes sure that your computer is set back to
+how it was prior to testing.
+
 Now you can run:
 
 ```
@@ -101,3 +105,69 @@ after you have completed all 27 trials and if anything goes wrong in the process
 results.py is saved in backup.py when starting videotesting.py. All videos will be deleted
 once you have completed the process, and you can begin again. Keep note of the total number
 of trials though because results.py will only track number of successes. 
+
+## Image attacks
+
+Image attacks are just a simpler case of video attacks. They are also used with iris recognition
+and face recognition. The testing done looks at images taken at different distances and various
+refresh rates.
+
+
+### Preparing to test image attacks
+
+To begin, you will need to install the necessary dependencies, if you do not
+already have them.
+
+
+```
+   pip install opencv-python
+```
+
+You will also need to install vlc onto your system if you do not already have it.
+
+Within the ImageAttacks folder, there exists a config.py file. This will need
+to be adjusted for your system. To get the necessary information, you will need
+to start by typing the command:
+
+This will give a list of monitors that are connected to your computer and the
+resolution / refresh rates that is supported by that monitor. Find the name of
+your monitor (It should be something like "HDMI-0" or "DP-4"). Find the supported
+refresh rates that you would like to test at (in my case 50Hz, 60Hz, and 100Hz
+[these were chosen because it is likely closest to the shutter speed of the camera]).
+
+Using the values you have obtained, replace the values in config.py with the ones
+you have. I recommend keeping the resolution at 1920x1080 even if you have a higher
+resolution monitor. I do not recommend using a monitor with a lower resolution than
+1920x1080.
+
+For the values of defaultRes and defaultRate, simply use the resolution and refresh
+rate that you normally use. This just makes sure that your computer is set back to
+how it was prior to testing.
+
+### Testing image attacks
+
+Once everything has been set up, you can record the videos once again by using:
+
+```
+python imagecapturing.py
+```
+
+Your default webcam (which MUST support 1080p 30fps or it will be scaled down) will
+start recording. A distance for you to take the picture from will be shown on the
+video and you will press q to take a picture. Take ten pictures and repeat at the
+new distance. This will be done three times for a total of 30 pictures. These will
+be saved in the ./images/ directory.
+
+Once completed, you can run:
+
+```
+python imagetesting.py
+```
+
+This will show an image in vlc at a specfic refresh rate and you will test it five 
+times. Once completed, close vlc and input the number of successes out of the five 
+attempts. Repeat this process until no more images are shown. There should be 90
+images in total shown per subject. The results will be stored in results.py and
+a backup will be made in backup.py each time imagetesting.py is started, just in
+case of any mistakes. Keep track of the total number of tests in each category on
+your own, because results.py only tracks successes.  
