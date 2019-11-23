@@ -33,7 +33,7 @@ already have them.
 
 
 ```
-   pip install datetime opencv-python
+pip install datetime opencv-python
 ```
 
 You will also need to install xrandr and vlc onto your system if you do not
@@ -124,7 +124,7 @@ already have them.
 
 
 ```
-   pip install opencv-python
+pip install opencv-python
 ```
 
 You will also need to install vlc onto your system if you do not already have it.
