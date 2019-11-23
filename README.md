@@ -37,7 +37,11 @@ already have them.
 ```
 
 You will also need to install xrandr and vlc onto your system if you do not
-already have it.
+already have it. You can install them with:
+
+```
+sudo apt-get install x11-xserver-utils vlc
+```
 
 Within the VideoAttacks folder, there exists a config.py file. This will need
 to be adjusted for your system. To get the necessary information, you will need
@@ -124,6 +128,12 @@ already have them.
 ```
 
 You will also need to install vlc onto your system if you do not already have it.
+You can install it with:
+
+```
+sudo apt-get install vlc
+```
+
 
 Within the ImageAttacks folder, there exists a config.py file. This will need
 to be adjusted for your system. To get the necessary information, you will need
