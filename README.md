@@ -83,7 +83,7 @@ biometric five times (your device will temporarily no longer allow you to use bi
 unlock the device at this point, that is how you know when to move on). Once this is
 completed, simply close vlc and when it prompts to enter the number of successes, simply
 put in the number of times your device was unlocked. This will be stored in results.py
-after you have completed all 9 trials and if anything goes wrong in the process,
+after you have completed all fifteen trials and if anything goes wrong in the process,
 results.py is saved in backup.py when starting videotesting.py. All videos will be deleted
 once you have completed the process, and you can begin again. Keep note of the total number
 of trials though because results.py will only track number of successes. 
