@@ -30,4 +30,4 @@ file.close()
 # Reset to what I use
 os.system("xrandr --output DP-4 --mode 2560x1440 -r 144")
 # Empty the contents of the videos directory
-#os.system("rm ./videos/*")
+os.system("rm ./videos/*")

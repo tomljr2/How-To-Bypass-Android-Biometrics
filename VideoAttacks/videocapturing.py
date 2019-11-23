@@ -1,7 +1,7 @@
 import datetime
 from threading import Thread
 import cv2
-from cfpsList import *
+from config import *
 import os
 
 # This is a class to handle the recording using multiple threads.
