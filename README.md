@@ -24,7 +24,7 @@ was deprecated in Android 8.0, so this research does not focus on that.
 Video attacks are used for iris and face recognition as an attempted method
 of bypassing them by simply replaying a video of the victim. The code
 provided gives a method to test in a variety of settings including different
-resolutions, distances, and monitor refresh rates.
+resolutions, distances, and framerates.
 
 ### Preparing to test video attacks
 
@@ -36,44 +36,23 @@ already have them.
 pip install datetime opencv-python
 ```
 
-You will also need to install xrandr and vlc onto your system if you do not
+You will also need to install vlc onto your system if you do not
 already have it. You can install them with:
 
 ```
-sudo apt-get install x11-xserver-utils vlc
+sudo apt-get install vlc
 ```
 
 Within the VideoAttacks folder, there exists a config.py file. This will need
 to be adjusted for your system. To get the necessary information, you will need
 to start by typing the command:
 
-
-```
-xrandr
-```
-
-This will give a list of monitors that are connected to your computer and the
-resolution / refresh rates that is supported by that monitor. Find the name of
-your monitor (It should be something like "HDMI-0" or "DP-4"). Find the supported
-refresh rates that you would like to test at (in my case 50Hz, 60Hz, and 100Hz
-[these were chosen because it is likely closest to the shutter speed of the camera]).
-
-Using the values you have obtained, replace the values in config.py with the ones
-you have. I recommend keeping the resolution at 1920x1080 even if you have a higher
-resolution monitor. I do not recommend using a monitor with a lower resolution than
-1920x1080.
-
-For the values of defaultRes and defaultRate, simply use the resolution and refresh
-rate that you normally use. This just makes sure that your computer is set back to
-how it was prior to testing.
-
-Now you can run:
-
 ```
 python videocapturing.py
 ```
 
-Your default webcam (this MUST support 1080px30fps, 720px60fps, 480px60fps, otherwise
+Your default webcam (this MUST support 1080px30fps, 720px60fps, 720px30fps 480px60fps, 
+and 480px30fps otherwise
 it will scale the video down) will begin recording and it will say how close to keep
 your face and then press q when done. It will then record a video and repeat the process
 at a new distance. After this is done three times, it will do it all again at a different
@@ -99,13 +78,12 @@ being tested. Once all of the videos have been created, you can then run:
 python videotesting.py
 ```
 
-This will replay the videos in a loop at different refresh rates. This can be a long and
-tedious process, so be prepared. When a video comes up, you will attempt to bypass the
+This will replay the videos in a loop. When a video comes up, you will attempt to bypass the
 biometric five times (your device will temporarily no longer allow you to use biometrics to
 unlock the device at this point, that is how you know when to move on). Once this is
 completed, simply close vlc and when it prompts to enter the number of successes, simply
 put in the number of times your device was unlocked. This will be stored in results.py
-after you have completed all 27 trials and if anything goes wrong in the process,
+after you have completed all 9 trials and if anything goes wrong in the process,
 results.py is saved in backup.py when starting videotesting.py. All videos will be deleted
 once you have completed the process, and you can begin again. Keep note of the total number
 of trials though because results.py will only track number of successes. 
@@ -113,8 +91,7 @@ of trials though because results.py will only track number of successes.
 ## Image attacks
 
 Image attacks are just a simpler case of video attacks. They are also used with iris recognition
-and face recognition. The testing done looks at images taken at different distances and various
-refresh rates.
+and face recognition. The testing done looks at images taken at different distances.
 
 
 ### Preparing to test image attacks
@@ -134,29 +111,9 @@ You can install it with:
 sudo apt-get install vlc
 ```
 
-
-Within the ImageAttacks folder, there exists a config.py file. This will need
-to be adjusted for your system. To get the necessary information, you will need
-to start by typing the command:
-
-This will give a list of monitors that are connected to your computer and the
-resolution / refresh rates that is supported by that monitor. Find the name of
-your monitor (It should be something like "HDMI-0" or "DP-4"). Find the supported
-refresh rates that you would like to test at (in my case 50Hz, 60Hz, and 100Hz
-[these were chosen because it is likely closest to the shutter speed of the camera]).
-
-Using the values you have obtained, replace the values in config.py with the ones
-you have. I recommend keeping the resolution at 1920x1080 even if you have a higher
-resolution monitor. I do not recommend using a monitor with a lower resolution than
-1920x1080.
-
-For the values of defaultRes and defaultRate, simply use the resolution and refresh
-rate that you normally use. This just makes sure that your computer is set back to
-how it was prior to testing.
-
 ### Testing image attacks
 
-Once everything has been set up, you can record the videos once again by using:
+Once everything has been set up, you can take the images by using:
 
 ```
 python imagecapturing.py
@@ -174,9 +131,9 @@ Once completed, you can run:
 python imagetesting.py
 ```
 
-This will show an image in vlc at a specfic refresh rate and you will test it five 
+This will show an image in vlc and you will test it five 
 times. Once completed, close vlc and input the number of successes out of the five 
-attempts. Repeat this process until no more images are shown. There should be 90
+attempts. Repeat this process until no more images are shown. There should be 30
 images in total shown per subject. The results will be stored in results.py and
 a backup will be made in backup.py each time imagetesting.py is started, just in
 case of any mistakes. Keep track of the total number of tests in each category on

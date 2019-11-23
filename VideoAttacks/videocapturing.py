@@ -101,11 +101,37 @@ record.record()
 record = recordVideo(h,w,f,fourcc,"./videos/far-"+str(h)+"-"+str(w)+"-"+str(f)+"-","Put face 30in from camera.")
 record.record()
 
+# TEST RECORD AT 1280x720x30fps
+
+h=1280
+w=720
+f=30
+
+record = recordVideo(h,w,f,fourcc,"./videos/close-"+str(h)+"-"+str(w)+"-"+str(f)+"-","Put face 10in from camera.")
+record.record()
+record = recordVideo(h,w,f,fourcc,"./videos/med-"+str(h)+"-"+str(w)+"-"+str(f)+"-","Put face 20in from camera.")
+record.record()
+record = recordVideo(h,w,f,fourcc,"./videos/far-"+str(h)+"-"+str(w)+"-"+str(f)+"-","Put face 30in from camera.")
+record.record()
+
 # TEST RECORD AT 640x480x60fps
 
 h=640
 w=480
 f=60
+
+record = recordVideo(h,w,f,fourcc,"./videos/close-"+str(h)+"-"+str(w)+"-"+str(f)+"-","Put face 10in from camera.")
+record.record()
+record = recordVideo(h,w,f,fourcc,"./videos/med-"+str(h)+"-"+str(w)+"-"+str(f)+"-","Put face 20in from camera.")
+record.record()
+record = recordVideo(h,w,f,fourcc,"./videos/far-"+str(h)+"-"+str(w)+"-"+str(f)+"-","Put face 30in from camera.")
+record.record()
+
+# TEST RECORD AT 640x480x30fps
+
+h=640
+w=480
+f=30
 
 record = recordVideo(h,w,f,fourcc,"./videos/close-"+str(h)+"-"+str(w)+"-"+str(f)+"-","Put face 10in from camera.")
 record.record()
